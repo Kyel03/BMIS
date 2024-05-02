@@ -15,7 +15,14 @@
             <h1 class="text-3xl font-semibold text-center text-gray-700">Register</h1>
             <form action="{{ route('register.save') }}" method="POST" class="space-y-4">
                 @csrf
-                <div>
+                <div>  <ul>@if ($errors->any())
+                    <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                 <li>{{ $error }}</li>
+                     @endforeach
+         </ul>
+     </div>
+@endif</ul>
                     <label class="label">
                         <span class="text-base label-text">Name</span>
                     </label>
